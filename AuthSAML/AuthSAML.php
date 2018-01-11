@@ -10,7 +10,7 @@
  * other free or open source software licenses.
  */
 
-class AuthSAML extends AuthPluginBase
+class AuthSAML extends  LimeSurvey\PluginManager\AuthPluginBase
 {
     protected $storage = 'DbStorage';
 
@@ -95,9 +95,7 @@ class AuthSAML extends AuthPluginBase
         return $this->ssp;
     }
  
-    public function __construct(PluginManager $manager, $id) {
-        parent::__construct($manager, $id);
-
+    public function init() {
         $this->storage = $this->get('storage_base', null, null, 'DbStorage');
 
         // Here you should handle subscribing to the events your plugin will handle
